@@ -1,0 +1,113 @@
+.mainTimer {
+	width: 350px; 
+	text-align: center; 
+	line-height: 0.4;
+}
+
+h1 {
+	font-size: 60px;
+	font-weight: 900;
+	line-height: 0.2;
+	margin-top: 30px;
+}
+h2 {
+	font-size: 20px;
+	font-weight: 600;
+	color: #212121;
+	margin-top: 20px;
+}
+h3 {
+	font-size: 17px;
+	font-weight: 100;
+	color: #212121;
+	margin-top: 20px;
+}
+
+.mainPicture {
+	width: 100%;
+	height: 200px;
+}
+
+.message {
+	text-align: center;
+	margin-top: -15px;
+}
+
+/*Collapsible*/
+
+.collapsible {
+	background-color: #f8f8f8;
+	color: #515151;
+	cursor: pointer;
+	padding: 10px;
+	width: 100%;
+	border: none;
+	text-align: left;
+	outline: none;
+	font-size: 14px;
+	font-weight: 100;
+}
+
+.active, .collapsible:hover {
+	background-color: #f1f1f1;
+}
+
+.collapsible:after {
+	content: '\002B';
+	color: #515151;
+	font-weight: 200;
+	float: right;
+	margin-left: 5px;
+}
+
+.active:after {
+	content: "\2212";
+}
+
+.content {
+	padding: 0 26px;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
+	background-color: #f8f8f8;
+}
+
+/*Sliders*/
+
+.slider {
+	-webkit-appearance: none;
+	width: 100%;
+	height: 5px;
+	border-radius: 5px;  
+	background: #d3d3d3;
+	outline: none;
+	opacity: 0.7;
+	-webkit-transition: .2s;
+	transition: opacity .2s;
+	margin-bottom: 20px;
+}
+
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%; 
+	background: #484852;
+	cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	background: #4CAF50;
+	cursor: pointer;
+}
+
+p {
+	margin-top: 20px;
+	margin-bottom: 10px;
+	font-size: 12px;
+	line-height: 0;
+}
