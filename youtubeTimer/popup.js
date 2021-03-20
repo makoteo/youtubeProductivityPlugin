@@ -1,11 +1,18 @@
+//by ZeSardine
+
 //CONTAINS THE JAVASCRIPT WHICH CONTROLS THE CONTENT WITHIN THE POPUP (TIMER, READING SETTINGS)
+
+var maxTime = 3; //max time that you can set on the slider
 
 changeTime();
 document.addEventListener('DOMContentLoaded', function() {
 	
-	document.getElementById("timer").innerHTML = "--:--:--"; //Set timer initially so it's not weird
+	if(!!document.getElementById("timer")){
+		document.getElementById("timer").innerHTML = "--:--:--"; //Set timer initially so it's not weird
+	}
 	
 	//JAVASCRIPT FOR COLLAPSIBLE SETTINGS
+	//honestly just copied this
 	var coll = document.getElementsByClassName("collapsible");
 	var i;
 
@@ -45,6 +52,10 @@ function updateSliders(obj, get){
 	var value = obj.value;
 	var stringThing;
 	
+	if(keyTmp === "timeLimit"){
+		if(value > maxTime){obj.value = maxTime}
+	}
+	
 	if(get){
 		chrome.storage.local.get([keyTmp], function(result) { //Use the id as a key
 			value = result[keyTmp]; //Get the id value from the result
@@ -64,12 +75,12 @@ function updateSliderText(obj){ //Changes id to something more humanly pretty (c
 	stringThing = stringThing.replace(/([A-Z])/g, ' $1').trim(); //Adds space in front of upercase letters
 	var appendix = "";
 	if(obj.id === "timeLimit"){appendix = " hrs"}
-	obj.previousElementSibling.innerHTML = stringThing + ": " + obj.value + appendix;
+	obj.previousElementSibling.innerHTML = stringThing + ": " + obj.value + appendix; //Sets the tag above the slider
 }
 
 function changeTime(){
 	chrome.storage.local.get(['currentTime'], function(result) { //Gets the current time set by content.js
-		document.getElementById("timer").innerHTML = new Date(Math.round(result.currentTime) * 1000).toISOString().substr(11, 8);
+		document.getElementById("timer").innerHTML = new Date(Math.round(result.currentTime) * 1000).toISOString().substr(11, 8); //Sets the timer to that value (ISOstring formats it to look cool)
 	});
 }
 
@@ -77,7 +88,7 @@ chrome.runtime.onMessage.addListener(
 	function(request, sender) {
 		if(request.message == "setClockOnNonYoutubePage"){
 			//Just change the time to the sent totalTime and hold it there until youtube opened again
-			document.getElementById("timer").innerHTML = new Date(Math.round(request.totalTime) * 1000).toISOString().substr(11, 8);
+			document.getElementById("timer").innerHTML = new Date(Math.round(request.totalTime) * 1000).toISOString().substr(11, 8); //Sets the timer to that value (ISOstring formats it to look cool)
 		}
 	}
 );
