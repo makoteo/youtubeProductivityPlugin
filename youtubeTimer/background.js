@@ -4,7 +4,7 @@
 
 var totalTime = 0; //total time on youtube
 chrome.storage.local.get(['currentTime'], function(result) {
-	totalTime = result.currentTime; //sets the totalTime if it's already saved (if after plugin reset there's a saved value)
+	totalTime = result.currentTime ?? 0; //sets the totalTime if it's already saved (if after plugin reset there's a saved value)
 	chrome.storage.local.set({"currentTime": totalTime}, function() {}); //saves that to localStorage
 });
 var interval = [0, 0, 0]; //first item is overwrite flag (0 means youtube isn't on, 1 means it was already open), second is time you opened youtube, third is time you left youtube
