@@ -80,7 +80,8 @@ function updateSliderText(obj){ //Changes id to something more humanly pretty (c
 
 function changeTime(){
 	chrome.storage.local.get(['currentTime'], function(result) { //Gets the current time set by content.js
-		document.getElementById("timer").innerHTML = new Date(Math.round(result.currentTime) * 1000).toISOString().substr(11, 8); //Sets the timer to that value (ISOstring formats it to look cool)
+		var tmptimething = result.currentTime ?? 0; //In case currentTime is null
+		document.getElementById("timer").innerHTML = new Date(Math.round(tmptimething) * 1000).toISOString().substr(11, 8); //Sets the timer to that value (ISOstring formats it to look cool)
 	});
 }
 
