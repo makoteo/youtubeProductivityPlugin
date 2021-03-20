@@ -21,7 +21,7 @@ var modalText = "So... You've been here for quite a while now...";
 //CHECK TABOPEN SO SCRIPT DOESN'T RUN ON ALL YOUTUBE TABS ----------------------------------
 
 //Make sure tab is open
-tabOpen = false;
+tabOpen = true;
 
 //Change the tabOpen when you switch tabs
 document.addEventListener("visibilitychange", function() {
