@@ -12,4 +12,4 @@ Instead of simply blocking Youtube, it makes the experience really annoying. For
 
 There's many comments in the code, so you're free to change it up however you like. The _actions.js_ file contains an array with all the links and texts that the plugin should use, so you can edit those if you want.
 
-If you want to use this, download the repository, go to chrome://extensions/, click on _load unpacked_ and then select the file that you downloaded.  
+If you want to use this, download the repository, upzip it, go to chrome://extensions/, click on _load unpacked_ and then select the unzipped _youtubeTimer_ folder that you downloaded.  
